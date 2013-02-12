@@ -14,7 +14,7 @@ type Config struct {
 }
 
 //we are defining StatsdClient interface. This way we can use stubbed type in testing.
-type Wrapper interface {
+type StatsdClient interface {
 	Inc(stat string, value int64, rate float32) error
 	Dec(stat string, value int64, rate float32) error
 	Gauge(stat string, value int64, rate float32) error
