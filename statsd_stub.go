@@ -1,6 +1,5 @@
 package statsd_wrapper
 
-//define StatsdStub type
 type Stub struct {
 	TimingFunc func(stat string, value int64, rate float32) error
 	IncFunc    func(stat string, value int64, rate float32) error

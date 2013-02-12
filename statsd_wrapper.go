@@ -1,6 +1,5 @@
 package statsd_wrapper
 
-//we should pull defaults here, if it is going to be separate package.
 const (
 	//Default Ip Address and port for Statsd
 	DefaultStatsdAddr = "127.0.0.1:8125"
