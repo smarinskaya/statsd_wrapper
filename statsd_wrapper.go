@@ -2,7 +2,9 @@ package statsd_wrapper
 
 import (
 	"errors"
+	"fmt"
 	"github.com/cactus/go-statsd-client/statsd"
+	"regexp"
 )
 
 const (
@@ -38,4 +40,15 @@ func CreateStatsdClient(config *Config) (Client, error) {
 	}
 
 	return client, err
+}
+
+func CleanString(name string) (cleanName string) {
+
+	reg, err := regexp.Compile("[%,\\/,\\\\,\\.]")
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	cleanName = reg.ReplaceAllString(name, "-")
+	return cleanName
 }
